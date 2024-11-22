@@ -6,6 +6,7 @@ public class Main {
         int a = 0;
         met(mas, a);
         System.out.print("n = " + met(mas, a) + "!");
+        System.out.println("Склонированный репозиторий");
     }
 
     public static int met(int[] m, int n1) {
