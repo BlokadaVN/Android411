@@ -5,7 +5,7 @@ public class Main {
         int[] mas = {-2, 3, 8, -11, -4, 6};
         int a = 0;
         met(mas, a);
-        System.out.print("n = " + met(mas, a));
+        System.out.print("n = " + met(mas, a) + "!");
     }
 
     public static int met(int[] m, int n1) {
@@ -19,5 +19,7 @@ public class Main {
             sum++;
         }
         return sum;
+
+
     }
 }
