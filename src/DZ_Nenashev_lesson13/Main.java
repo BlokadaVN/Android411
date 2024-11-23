@@ -20,7 +20,5 @@ public class Main {
             sum++;
         }
         return sum;
-
-
     }
 }
