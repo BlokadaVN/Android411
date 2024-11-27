@@ -118,7 +118,7 @@ public class Main {
 //            array[i] = input.nextInt();
 //
 //        }
-//        System.out.println(Arrays.toString(array));
+//        System.out.println(Arrays.toString(array));   // КАК СЛОЖИТЬ ВСЕ ЧИСЛА ИЗ ВСЕХ ЯЧЕЕК МАССИВА !!!!!!!
 //
 //        for (int i = 0; i < array.length; i++) {
 //            if (array[i] < 0) {

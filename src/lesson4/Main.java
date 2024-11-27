@@ -133,7 +133,7 @@ public class Main {
 //        }
 
         int n;
-        System.out.print("Введите колличество ворон: ");
+        System.out.print("Введите количество ворон: ");
         n = input.nextInt();
         if (n >= 0 && n <= 9) {
        //     System.out.print(" На ветке ");

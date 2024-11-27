@@ -23,7 +23,7 @@ public class Main {
 //       a = 20;
 //        System.out.println(a);
 //        final int WEEK;
-//        WEEK =7;
+//        WEEK = 7;
 //        System.out.println(WEEK);
 //        boolean flag = true;
 //        System.out.println(flag);

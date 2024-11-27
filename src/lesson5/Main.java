@@ -71,7 +71,7 @@ public class Main {
 //                break;
 //        }
 //        if (g >= 1 && g <= 12) {
-//            System.out.println("\tКолличество дней " + od);
+//            System.out.println("\tКоличество дней " + od);
 //        }
 
 
