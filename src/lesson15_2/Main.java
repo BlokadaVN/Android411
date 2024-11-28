@@ -73,6 +73,9 @@ public class Main {
 //        System.out.println(res);
 
 
+
+
+        // Добавление строковых значений в массив
         String s = "я буду хорошим программистом";
         System.out.println(s);
         int[] result = new int['я' - 'а' + 1];
