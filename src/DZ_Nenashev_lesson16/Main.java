@@ -8,7 +8,7 @@ public class Main {
         String st = "Лидер Венере не вредил";
         //   String st = "Могу добавить";
         //    String st = "Лазер резал";
-        System.out.println(st);
+        String st2 = st;
         String a = " ";
         String b = "";
         String st1 = "";
@@ -17,6 +17,6 @@ public class Main {
         for (int i = st.length() - 1; i >= 0; i--) {
             st1 += st.charAt(i);
         }
-        System.out.println(st + " <--> " + st1 + " = " + st1.equalsIgnoreCase(st));
+        System.out.print(st2 + " : " + st.equalsIgnoreCase(st1));
     }
 }
