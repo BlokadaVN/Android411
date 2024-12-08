@@ -9,11 +9,8 @@ public class Main {
 
         String s = "Текст с повторяющимися символами";
         System.out.println("Исходная строка: " + s);
-      
-        String a = " ";
-        String b = "";
-        s.contains(a);
-        s = s.replace(a, b);
+
+        s = s.replace(" ", "");
 
         StringBuilder sb = new StringBuilder();
 

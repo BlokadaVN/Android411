@@ -8,9 +8,44 @@ public class Main {
 
         // Регулярные выражения - ШАБЛОНЫ. (regular expression)
 
-        String s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 159. Hello. Ели[-ели].";
+        // String s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 159. He_llo. Ели[-ели].";
+//
+//        String s = "Цифры 7, +17, -42, 0013, 0.3"; // это пример для ? знака. В общем ? знак это или или, или может быть или не может.
+//        String pattern = "[+-]?[\\d.]+"; // 7 +17 -42 0013 0.3 // в квадратных скобках мы ищем плюс и минус, чтоб при проверке их не потерять. В общем ? знак это или или, или может быть или не может.
 
-        String pattern = "[0-9]"; // Если ^ стоит вначале [^0-9], то ищется все кроме того, что стоит после него. Не обязательно цифры.
+        // String pattern = "[+-]?\\d+\\.?\\d*"; // 7 +17 -42 0013 0.3 // в квадратных скобках мы ищем плюс и минус, чтоб при проверке их не потерять. В общем ? знак это или или, или может быть или не может.
+
+
+        // String pattern = "[^0-9]"; // Если ^ стоит вначале [^0-9], то ищется все кроме того, что стоит после него. Не обязательно цифры.
+
+        // String pattern = "."; // Точка выводит ВСЕ символы в строке. Если нужно найти именно точку, то нужно "\\."
+
+        // String pattern = "\\d"; // \\d - ищет одну любую цифру в строке. Здесь выводит все цифры, потому что ниже мы проходим по строке в цикле. Аналог записи [0-9].
+
+        // String pattern = "\\s"; // \\s - ищет пробельный символ.
+
+        // String pattern = "\\w"; // \\w - аналог [A-Za-z0-9_]
+
+        // String pattern = "\\D"; // \\D - любой символ, кроме цифр. ([ - . _ A b C d) и т.д.
+
+        // String pattern = "\\S"; // \\S - все кроме пробела.
+
+        // String pattern = "\\W"; // \\W - все кроме [A-Za-z0-9_].
+
+
+        // String pattern = "\\AЯ ищу"; // \\A - "Я ищу", стоит в НАЧАЛЕ строки. \\А ищет именно сначала строки. Если ввести например \\Асовпадение, то он не найдет, т.к. это не начало строки.
+
+        // String pattern = "Ели\\[-ели\\]\\.\\Z"; // \\Z - поиск в конце строки.
+
+
+        // String pattern = "\\bпадения"; // \\b - ищет совпадение слова в середине строки.
+        // String pattern = "\\Bпадения"; // \\B - проверяет совпадения слова в середине строки.
+
+
+        // String pattern = "\\d+"; // \\d+ ищет в строке ОДНО и БОЛЕЕ вхождений. 2024 - это от 1 до 4 далее 2 это одно вхождение
+
+        // String pattern = "20*";
+
 
 //        String pattern = "[^0-9]"; // Если ^ стоит вначале [^0-9], то ищется все кроме того, что стоит после него.
 
@@ -26,19 +61,84 @@ public class Main {
 //        String pattern = "ищу"; // поиск по слову.
 //        String pattern = "[2024]"; // в скобках [] ищется полностью все совпадения в строке.
 
-        Pattern regex = Pattern.compile(pattern); // Метод ищет то что указано в переменной. .compile - компилируюет слово "ищу" в понятный ему код.
-        Matcher matcher = regex.matcher(s); // делает запрос на совпадение в строке из Pattern (ищу) - (true) matcher.find()
-        System.out.println(regex);
-//        System.out.println(matcher.find());
-
-        while (matcher.find()) {
+//        Pattern regex = Pattern.compile(pattern); // Метод ищет то что указано в переменной. .compile - компилируюет слово "ищу" в понятный ему код.
+//        Matcher matcher = regex.matcher(s); // делает запрос на совпадение в строке из Pattern (ищу) - (true) matcher.find()
+//        System.out.println(regex);
+////        System.out.println(matcher.find());
+//
+//        while (matcher.find()) {
 
 //            System.out.println("Шаблон совпадения найден с " + matcher.start() + " по " + (matcher.end() - 1)); // matcher.start() интовый метод, показывает с какого индекса найдено совпадение. matcher.end() - последний индекс совпадения.
 //            System.out.println(s.substring(matcher.start(), matcher.end()));
 
-            System.out.print(matcher.group() + " "); // .group() - сразу выводит элемент совпадения. (не надо расписывать, как на строке выше).
+        //  System.out.print(matcher.group() + " "); // .group() - сразу выводит элемент совпадения. (не надо расписывать, как на строке выше).
 
+
+        /* Кол-во повторений в спецсимволах
+
+        + - это от 1 до бесконечности
+        * - это от 0 до бесконечности
+        ? - это от 0 до 1
+        {2} - вывод строго указанного в фигурных скобках кол-ва символов.
+        {n,} - вывод от 1 до бесконечности
+        {n,m} - строго заданное кол-во элементов.
+         */
+
+        // Задача
+
+//        String s1 = "author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831";
+//       // String pattern1 = "\\w+\\s*=\\s*[А-я0-9 .]+";
+//        String pattern1 = "\\w+\\s*=[^;]+";
+//        Pattern regex1 = Pattern.compile(pattern1);
+//        Matcher matcher1 = regex1.matcher(s1);
+//
+//        while (matcher1.find()) {
+//            System.out.println(matcher1.group());
+//        }
+
+
+//        String s1 = "12 сентября 2024 года 463188356";
+//        String pattern1 = "\\d{2,}";
+//        Pattern regex1 = Pattern.compile(pattern1);
+//        Matcher matcher1 = regex1.matcher(s1);
+//
+//        while (matcher1.find()) {
+//            System.out.println(matcher1.group());
+//        }
+
+
+        // Задача: вывести на экран второй и четвертый вариант.
+
+//        String s1 = "+7 996 700-72-27, +79967007227, 7 (996) 700 72 27, 79967007227";
+//        // String pattern1 = "\\w+\\s*=\\s*[А-я0-9 .]+";
+//        String pattern1 = "\\+?7\\d{10}";
+//        Pattern regex1 = Pattern.compile(pattern1);
+//        Matcher matcher1 = regex1.matcher(s1);
+//
+//        while (matcher1.find()) {
+//            System.out.println(matcher1.group());
+//        }
+
+
+//        String s1 = "I learning Java Hello";
+//        // String pattern1 = "^\\w+\\s\\w+"; // ^ - шаблон \w+\s\w+ будет работать только от начала строки, остальные совпадения не выведет
+//        String pattern1 = "\\w+\\s\\w+$"; // $ - шаблон \w+\s\w+ будет работать только от конца строки, остальные совпадения не выведет
+//        Pattern regex1 = Pattern.compile(pattern1);
+//        Matcher matcher1 = regex1.matcher(s1);
+//
+//        while (matcher1.find()) {
+//            System.out.println(matcher1.group());
+//        }
+
+
+        String s1 = "Java_master";
+        // String pattern1 = "^\\w+\\s\\w+"; // ^ - шаблон \w+\s\w+ будет работать только от начала строки, остальные совпадения не выведет
+        String pattern1 = "^[\\w-]{3,16}$"; // $ - шаблон \w+\s\w+ будет работать только от конца строки, остальные совпадения не выведет
+        Pattern regex1 = Pattern.compile(pattern1);
+        Matcher matcher1 = regex1.matcher(s1);
+
+        while (matcher1.find()) {
+            System.out.println(matcher1.group());
         }
-
     }
 }
