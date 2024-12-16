@@ -7,7 +7,7 @@ public class Main {
 
         int n = 10;
         Student students[] = new Student[n];
-        students[0] = new Student("Петров", "А.В.", 1);
+        students[0] = new Student("Петров", "В.В.", 1);
         students[1] = new Student("Петров", "В.И.", 1);
         students[2] = new Student("Чернов", "С.Л.", 1);
         students[3] = new Student("Непошке", "Ю.Ч.", 2);

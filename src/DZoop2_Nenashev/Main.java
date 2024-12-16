@@ -6,5 +6,6 @@ public class Main {
         System.out.println("Площадь квадрата: " + Square.sqr(7));
         System.out.println("Площадь прямоугольника: " + Square.pr(2, 6));
         System.out.println("Количество подсчетов площади: " + Square.getCount());
+
     }
 }

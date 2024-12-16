@@ -2,7 +2,7 @@ package DZoop2_Nenashev;
 
 public class Square {
 
-    //  public static int ger ()
+    //   public static int ger ()
 
     public static double osn(int a, int b) {
         double p = (a * b) / 2.;
