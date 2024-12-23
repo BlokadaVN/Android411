@@ -9,7 +9,16 @@ public class Human {
         this.age = age;
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("HumanConstructor\t"+Integer.toHexString(hashCode())); // шестнадцатеричное представление хеш - кода объекта.
+        System.out.println("Human Constructor\t" + Integer.toHexString(hashCode())); // шестнадцатеричное представление хеш - кода объекта.
+    }
+
+    // Конструктор копирования.
+
+    public Human(Human other) {
+        this.age = other.age;
+        this.firstName = other.firstName;
+        this.lastName = other.lastName;
+        System.out.println("Human CopyConstructor\t" + Integer.toHexString(hashCode()));
     }
 
     public String getLastName() {

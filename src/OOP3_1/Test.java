@@ -16,7 +16,7 @@ public class Test {
 class Properties {
     int width;
     String color;
-    int id = 1;
+    protected int id = 1;
 
     public Properties() {
         System.out.println("Конструктор класса Properties.");
