@@ -1,4 +1,4 @@
-package Dzoop3_Nenashev;
+package DZoop3_Nenashev;
 
 public class Box3D extends Box {
 
