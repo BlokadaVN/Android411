@@ -1,9 +1,56 @@
 package OOP5_1Interface;
 
+interface Geom {
+    int MIN_COORDINATE = 0; // Константа.
+    int MAX_COORDINATE = 1000; // Константа.
+
+    static void showInterval() { // Статический метод.
+        System.out.println("[" + MIN_COORDINATE + "; " + MAX_COORDINATE + "]");
+    }
+}
+
+class InterfaceGroup {
+    private interface Interface1 {
+        void interface_1();
+
+        private void privateMethod() {
+            System.out.println("Приватный метод."); // Приватный метод в интерфейсе обязательно должен быть реализован.
+        }
+    }
+
+    interface Interface2 extends Interface1 {
+        void interface_2();
+    }
+}
+
+class RealiseInterface implements InterfaceGroup.Interface2 {
+
+    @Override
+    public void interface_2() {
+
+    }
+
+    @Override
+    public void interface_1() {
+
+    }
+}
+
 interface MathShape {
 
     double getSquare();
+
+    default double getPer(){
+        return 0; // Метод с реализацией по умолчанию.
+    }
 }
+
+abstract class Geom1 implements MathShape {
+    int width, color;
+    abstract void draw();
+}
+
+
 
 abstract class Shape {
 
@@ -18,7 +65,7 @@ abstract class Shape {
     abstract void draw();
 }
 
-class Line extends Shape {
+class Line extends Shape implements Geom {
     private int x1, x2, y1, y2;
 
     public Line(int wight, String color, int x1, int x2, int y1, int y2) {
@@ -27,6 +74,28 @@ class Line extends Shape {
         this.x2 = x2;
         this.y1 = y1;
         this.y2 = y2;
+    }
+
+    private boolean isCheck(int value) {
+        return MIN_COORDINATE <= value && value <= MAX_COORDINATE;
+    }
+
+    public void setCOORDINATE(int x1, int x2, int y1, int y2) {
+        if (isCheck(x1) && isCheck(y1) && isCheck(x2) && isCheck(y2)) {
+            this.x1 = x1;
+            this.x2 = x2;
+            this.y1 = y1;
+            this.y2 = y2;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Координаты линии: " +
+                "x1 = " + x1 +
+                ", x2 = " + x2 +
+                ", y1 = " + y1 +
+                ", y2 = " + y2;
     }
 
     @Override
