@@ -19,6 +19,4 @@ public enum Speed {
     public String toString() {
         return n;
     }
-
-
 }
