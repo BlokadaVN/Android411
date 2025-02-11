@@ -6,6 +6,25 @@ import java.util.ListIterator;
 public class Rainbow {
     public static void main(String[] args) {
 
+        LinkedList<Color> colors = getColors();
+        System.out.println("Список: " + colors);
+        System.out.println();
+
+        ListIterator<Color> cL = colors.listIterator();
+        System.out.println("Список итераторов в прямом направлении:");
+        while (cL.hasNext()) {
+            System.out.println("Индекс = " + cL.nextIndex() + ", Элемент = " + cL.next());
+        }
+        System.out.println();
+
+        System.out.println("Список итераторов в обратном направлении:");
+        while (cL.hasPrevious()) {
+            System.out.println("Индекс = " + cL.previousIndex() + ", Элемент = " + cL.previous());
+        }
+
+    }
+
+    private static LinkedList<Color> getColors() {
         Color c1 = new Color("Красный");
         Color c2 = new Color("Оранжевый");
         Color c3 = new Color("Желтый");
@@ -22,21 +41,7 @@ public class Rainbow {
         colors.add(c5);
         colors.add(c6);
         colors.add(c7);
-        System.out.println("Список: " + colors);
-        System.out.println();
-
-        ListIterator<Color> cL = colors.listIterator();
-        System.out.println("Список итераторов в прямом направлении:");
-        while (cL.hasNext()) {
-            System.out.println("Индекс = " + cL.nextIndex() + ", Элемент = " + cL.next());
-        }
-        System.out.println();
-
-        System.out.println("Список итераторов в обратном направлении:");
-        while (cL.hasPrevious()) {
-            System.out.println("Индекс = " + cL.previousIndex() + ", Элемент = " + cL.previous());
-        }
-
+        return colors;
     }
 }
 
