@@ -13,7 +13,6 @@ public class Main {
         Map<String, String> hashMapNew = new HashMap<>();
 
         for (var entry : hashMapOld.entrySet()) {
-//            hashMapNew.put(entry.getValue(), entry.getKey()); // Не работает.
             hashMapNew.put(entry.getValue(), entry.getKey());
         }
 
