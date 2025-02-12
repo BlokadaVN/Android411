@@ -11,8 +11,7 @@ public class Main {
 
         for (int i = 0; i < 5; i++) {
             System.out.print("-> ");
-            int num = input.nextInt();
-            treeSet.add(num);
+            treeSet.add(input.nextInt());
         }
         System.out.println("Наименьший элемент в TreeSet -> " + treeSet.getFirst());
     }
