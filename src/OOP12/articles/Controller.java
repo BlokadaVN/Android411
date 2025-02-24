@@ -24,9 +24,34 @@ public class Controller {
         if (answer.equals("1")) {
             Map article = userInterface.addUserArticle(); // 1
             articleModel.addArticle(article); // 2
-        }else if (answer.equals("2")){
+        } else if (answer.equals("2")) {
             Collection articles = articleModel.getAllArticles();
             userInterface.showAllArticles(articles);
+        } else if (answer.equals("3")) {
+            String articleTitle = userInterface.getUserArticle(); // 3 (37 лекция 23:00)
+            try {
+                Map article = articleModel.getSingleArticle(articleTitle); // Запрос определенной статьи.
+                userInterface.showArticlesInfo(article);
+            } catch (NullPointerException npe) {
+                userInterface.showIncorrectTitleError(articleTitle);
+            }
+        } else if (answer.equals("4")) {
+            String articleTitle = userInterface.getUserArticle(); // 1:03
+
+            // Обработка исключения не обязательна!
+
+            Article title = articleModel.removeArticle(articleTitle); // 4
+            if (title != null) {
+                userInterface.removeSingleArticle(title);
+            } else {
+                userInterface.showIncorrectTitleError(articleTitle);
+            }
+        } else if (answer.equals("q")) { // Сохранение данных в файл.
+            articleModel.saveDate();
+        } else {
+            userInterface.showIncorrectAnswerError(answer); // Если пользователь в меню нажал не то.
         }
+
+        // ======================
     }
 }
