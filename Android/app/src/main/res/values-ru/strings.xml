@@ -7,4 +7,11 @@
     <string name="second_bt">Вторая кнопка</string>
     <string name="text1">Нажмите на кнопки по очереди:</string>
     <string name="text2">Привет Мир!</string>
+    <string name="logo_text">Калькулятор</string>
+    <string name="number_1">Число 1</string>
+    <string name="number_2">Число 2</string>
+    <string name="sum_btn">+</string>
+    <string name="minus_btn">-</string>
+    <string name="umn_btn">*</string>
+    <string name="del_btn">/</string>
 </resources>
