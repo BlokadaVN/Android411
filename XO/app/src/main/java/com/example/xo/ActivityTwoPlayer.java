@@ -41,5 +41,22 @@ public class ActivityTwoPlayer extends AppCompatActivity {
                 }
             }
         });
+
+        imageButtonHard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String getPlayerOneName = playerOne.getText().toString();
+                String getPlayerNameTwo = playerTwo.getText().toString();
+
+                if (getPlayerOneName.isEmpty() || getPlayerNameTwo.isEmpty()) {
+                    Toast.makeText(ActivityTwoPlayer.this, "Enter name player", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(ActivityTwoPlayer.this, ActivityTwoPlayerHard.class);
+                    intent.putExtra("p1", getPlayerOneName);
+                    intent.putExtra("p2", getPlayerNameTwo);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }

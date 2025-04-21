@@ -108,6 +108,7 @@ public class ActivityTwoPlayerEasy extends AppCompatActivity {
 
     }
 
+    // Вся логика.
     private void performAction(ImageView imageView, int selectedBoxPosition) { // метод берет картинку и ставит на определенную позицию.
         boxPosition[selectedBoxPosition] = activePlayer;
         imageView.setBackgroundResource(R.drawable.border_button_gray);
@@ -142,85 +143,85 @@ public class ActivityTwoPlayerEasy extends AppCompatActivity {
         } else {
             imageView.setImageResource(R.drawable.o);
 
-            if (checkResult()) {
-                ActivityResult activityResult = new ActivityResult(ActivityTwoPlayerEasy.this, playerTwoName.getText().toString() + " winner!", ActivityTwoPlayerEasy.this);
-                activityResult.setCancelable(false);
-                activityResult.show();
+        if (checkResult()) {
+            ActivityResult activityResult = new ActivityResult(ActivityTwoPlayerEasy.this, playerTwoName.getText().toString() + " winner!", ActivityTwoPlayerEasy.this);
+            activityResult.setCancelable(false);
+            activityResult.show();
 
-                scoreTwo++;
-                scoreTwoP.setText(String.valueOf(scoreTwo));
+            scoreTwo++;
+            scoreTwoP.setText(String.valueOf(scoreTwo));
 
-            } else if (totalSelectBoxes == 9) {
-                ActivityResult activityResult = new ActivityResult(ActivityTwoPlayerEasy.this, "Match Draw", ActivityTwoPlayerEasy.this);
-                activityResult.setCancelable(false);
-                activityResult.show();
-            } else {
-                changePlayerTurn(1);
-                totalSelectBoxes++;
-            }
-        }
-    }
-
-    // Метод проверки кто выиграл.
-    private boolean checkResult() {
-        boolean check = false;
-        for (int i = 0; i < combinationList.size(); i++) {
-            final int[] comb = combinationList.get(i);
-            if (boxPosition[comb[0]] == activePlayer && boxPosition[comb[1]] == activePlayer && boxPosition[comb[2]] == activePlayer) {
-                check = true;
-            }
-        }
-        return check;
-    }
-
-    // Метод смены хода игрока.
-    private void changePlayerTurn(int currentPlayerTurn) {
-        activePlayer = currentPlayerTurn;
-
-        LinearLayout playerOneLayoutOuter = findViewById(R.id.playerOneLayoutOuter);
-        LinearLayout playerTwoLayoutOuter = findViewById(R.id.playerTwoLayoutOuter);
-
-        if (activePlayer == 1) {
-            playerOneLayoutOuter.setBackgroundResource(R.drawable.border_button_active);
-            playerTwoLayoutOuter.setBackgroundResource(R.drawable.border_button);
+        } else if (totalSelectBoxes == 9) {
+            ActivityResult activityResult = new ActivityResult(ActivityTwoPlayerEasy.this, "Match Draw", ActivityTwoPlayerEasy.this);
+            activityResult.setCancelable(false);
+            activityResult.show();
         } else {
-            playerTwoLayoutOuter.setBackgroundResource(R.drawable.border_button_active);
-            playerOneLayoutOuter.setBackgroundResource(R.drawable.border_button);
+            changePlayerTurn(1);
+            totalSelectBoxes++;
         }
     }
+}
 
-    // метод запрета ставить повторно в ячейку крестик или нолик.
-    private boolean isBoxSelectTable(int boxPositions) {
-        boolean response = false;
-        if (boxPosition[boxPositions] == 0) {
-            response = true;
+// Метод проверки кто выиграл.
+private boolean checkResult() {
+    boolean check = false;
+    for (int i = 0; i < combinationList.size(); i++) {
+        final int[] comb = combinationList.get(i);
+        if (boxPosition[comb[0]] == activePlayer && boxPosition[comb[1]] == activePlayer && boxPosition[comb[2]] == activePlayer) {
+            check = true;
         }
-        return response;
     }
+    return check;
+}
 
-    // метод перезапуска игры.
-    public void restartGame() {
-        boxPosition = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
-        activePlayer = 1;
-        totalSelectBoxes = 1;
-        image1 = findViewById(R.id.image1);
-        image2 = findViewById(R.id.image2);
-        image3 = findViewById(R.id.image3);
-        image4 = findViewById(R.id.image4);
-        image5 = findViewById(R.id.image5);
-        image6 = findViewById(R.id.image6);
-        image7 = findViewById(R.id.image7);
-        image8 = findViewById(R.id.image8);
-        image9 = findViewById(R.id.image9);
+// Метод смены хода игрока.
+private void changePlayerTurn(int currentPlayerTurn) {
+    activePlayer = currentPlayerTurn;
 
-        image1.setImageResource(R.drawable.border_button);
-        image2.setImageResource(R.drawable.border_button);
-        image3.setImageResource(R.drawable.border_button);
-        image4.setImageResource(R.drawable.border_button);
-        image5.setImageResource(R.drawable.border_button);
-        image6.setImageResource(R.drawable.border_button);
-        image7.setImageResource(R.drawable.border_button);
-        image8.setImageResource(R.drawable.border_button);
-        image9.setImageResource(R.drawable.border_button);
+    LinearLayout playerOneLayoutOuter = findViewById(R.id.playerOneLayoutOuter);
+    LinearLayout playerTwoLayoutOuter = findViewById(R.id.playerTwoLayoutOuter);
+
+    if (activePlayer == 1) {
+        playerOneLayoutOuter.setBackgroundResource(R.drawable.border_button_active);
+        playerTwoLayoutOuter.setBackgroundResource(R.drawable.border_button);
+    } else {
+        playerTwoLayoutOuter.setBackgroundResource(R.drawable.border_button_active);
+        playerOneLayoutOuter.setBackgroundResource(R.drawable.border_button);
     }
+}
+
+// метод запрета ставить повторно в ячейку крестик или нолик.
+private boolean isBoxSelectTable(int boxPositions) {
+    boolean response = false;
+    if (boxPosition[boxPositions] == 0) {
+        response = true;
+    }
+    return response;
+}
+
+// метод перезапуска игры.
+public void restartGame() {
+    boxPosition = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+    activePlayer = 1;
+    totalSelectBoxes = 1;
+    image1 = findViewById(R.id.image1);
+    image2 = findViewById(R.id.image2);
+    image3 = findViewById(R.id.image3);
+    image4 = findViewById(R.id.image4);
+    image5 = findViewById(R.id.image5);
+    image6 = findViewById(R.id.image6);
+    image7 = findViewById(R.id.image7);
+    image8 = findViewById(R.id.image8);
+    image9 = findViewById(R.id.image9);
+
+    image1.setImageResource(R.drawable.border_button);
+    image2.setImageResource(R.drawable.border_button);
+    image3.setImageResource(R.drawable.border_button);
+    image4.setImageResource(R.drawable.border_button);
+    image5.setImageResource(R.drawable.border_button);
+    image6.setImageResource(R.drawable.border_button);
+    image7.setImageResource(R.drawable.border_button);
+    image8.setImageResource(R.drawable.border_button);
+    image9.setImageResource(R.drawable.border_button);
+}
 }

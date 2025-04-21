@@ -29,12 +29,9 @@ public class ActivityResult extends Dialog {
         Button startNew = findViewById(R.id.button);
         messageText.setText(message);
 
-        startNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                activityTwoPlayer.restartGame();
-                dismiss(); // закрытие окна.
-            }
+        startNew.setOnClickListener(view -> {
+            activityTwoPlayer.restartGame();
+            dismiss(); // закрытие окна.
         });
     }
 }
