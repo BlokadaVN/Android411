@@ -3,6 +3,7 @@
     <style name="Base.Theme.XO" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary"> @color/cardview_dark_background</item>
     </style>
 
     <style name="Theme.XO" parent="Base.Theme.XO" />
