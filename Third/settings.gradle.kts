@@ -19,8 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GameXO"
+rootProject.name = "Third"
 include(":app")
-include(":app")
-include(":app")
- 

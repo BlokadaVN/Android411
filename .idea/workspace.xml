@@ -4,29 +4,17 @@
     <shared>
       <config />
     </shared>
-    <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-        <config>
-          <theme>@style/Theme.GameXO</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playing_field.xml">
-        <config>
-          <theme>@style/Theme.GameXO</theme>
-        </config>
-      </layout>
-    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d81a30c-5c94-4a3d-8ae4-bd93dcdc76df" name="Changes" comment="">
+    <list default="true" id="1531e2da-8cca-434d-9e18-db456d29cdc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/Android/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Android/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Android/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Android/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,12 +34,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2vJ80YU5SsQAtJuyFzU2TOJOR3k" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2w6mFMZk183YefHBwYB762Mvmdd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -65,8 +50,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Java/Android411/XO"
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -146,11 +130,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4d81a30c-5c94-4a3d-8ae4-bd93dcdc76df" name="Changes" comment="" />
-      <created>1743851598334</created>
+      <changelist id="1531e2da-8cca-434d-9e18-db456d29cdc0" name="Changes" comment="" />
+      <created>1745370293237</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1743851598334</updated>
+      <updated>1745370293237</updated>
     </task>
     <servers />
   </component>
@@ -159,12 +143,12 @@
       <map>
         <entry key="com.example.gamexo">
           <value>
-            <CheckInfo lastCheckTimestamp="1744979468679" />
+            <CheckInfo lastCheckTimestamp="1745371284275" />
           </value>
         </entry>
         <entry key="com.example.gamexo.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1744979468679" />
+            <CheckInfo lastCheckTimestamp="1745371284276" />
           </value>
         </entry>
       </map>
