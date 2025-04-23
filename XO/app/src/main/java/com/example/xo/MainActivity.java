@@ -28,5 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        imageButtonPvC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ActivityOnePlayer.class);
+                startActivity(intent);
+            }
+        });
     }
 }

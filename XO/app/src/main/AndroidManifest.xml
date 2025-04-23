@@ -13,6 +13,12 @@
         android:theme="@style/Theme.XO"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityOnePlayerEasy"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityOnePlayer"
+            android:exported="false" />
+        <activity
             android:name=".ActivityResultHard"
             android:exported="false" />
         <activity
