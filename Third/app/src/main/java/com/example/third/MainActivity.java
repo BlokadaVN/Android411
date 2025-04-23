@@ -1,29 +1,37 @@
 package com.example.third;
 
+
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class MainActivity extends AppCompatActivity {
+
+    private int currentProgress = 0;
+    private ProgressBar progressBar;
+    private EditText editTextKeyword;
+    private ChipGroup chipGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,5 +163,106 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+        Button buttonForProgress = findViewById(R.id.buttonForProgress);
+        buttonForProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProgressBar progressBar = findViewById(R.id.progressBar);
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        // Прогрессбар с заполнением полосы загрузки.
+        progressBar = findViewById(R.id.progressBarHorizontal);
+        Button startProgress = findViewById(R.id.startProgress);
+
+        startProgress.setOnClickListener(view -> {
+            currentProgress += 10;
+            progressBar.setProgress(currentProgress);
+            progressBar.setMax(100);
+        });
+
+
+        // Чип
+//        Chip chip1 = findViewById(R.id.chip);
+//        chip1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(MainActivity.this, "Action Completed", Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+
+        // Код для нижнего поля с добавлением чипов.
+        editTextKeyword = findViewById(R.id.editTextKeyword);
+        chipGroup = findViewById(R.id.chipGroup);
+        Button buttonAdd = findViewById(R.id.buttonAdd);
+        Button show = findViewById(R.id.buttonShow);
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addNewChip();
+            }
+        });
+
+
+        // Показывает всплывающие окно при выборе какого то чипа.
+        show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSelections();
+            }
+        });
+    }
+
+    private void addNewChip() {
+        String keyword = editTextKeyword.getText().toString();
+        if (keyword.isEmpty()) {
+            Toast.makeText(MainActivity.this, "Enter name", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Метод для создания нового элемента.
+        LayoutInflater inflater = LayoutInflater.from(this);
+        Chip newChip = (Chip) inflater.inflate(R.layout.layout_chip_entry, this.chipGroup, false);
+        newChip.setText(keyword);
+        chipGroup.addView(newChip);
+        this.editTextKeyword.setText("");
+
+        // Удаление элемента при нажатии на крестик.
+        newChip.setOnCloseIconClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleChipCloseIconClicked((Chip) view);
+            }
+        });
+    }
+
+    // Метод закрытия.
+    private void handleChipCloseIconClicked(Chip chip) {
+        ChipGroup parent = (ChipGroup) chip.getParent(); // chip.getParent() - получили родительский элемент.
+        parent.removeView(chip); // Удалили сам чип.
+    }
+
+    // Метод показывает всплывающие окно при выборе какого то чипа.
+    private void showSelections() {
+        int count = chipGroup.getChildCount(); // Получить кол-во чипов.
+        String s = null;
+        for (int i = 0; i < count; i++) {
+            Chip child = (Chip) chipGroup.getChildAt(i); // Записывает по индексу сам чип.
+            if (!child.isChecked()) {
+                continue;
+            }
+            if (s == null) {
+                s = child.getText().toString();
+            } else {
+                s += " ," + child.getText().toString();
+            }
+        }
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 }

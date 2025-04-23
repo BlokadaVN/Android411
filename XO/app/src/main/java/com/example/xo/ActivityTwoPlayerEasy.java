@@ -1,5 +1,7 @@
 package com.example.xo;
 
+import static android.content.Intent.getIntent;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
